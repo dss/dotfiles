@@ -1,0 +1,21 @@
+[general]
+accounts = Gmail
+ui = TTY.TTYUI
+#ui = Noninteractive.Quiet
+
+[Account Gmail]
+localrepository = Local
+remoterepository = Remote
+#autorefresh = 10
+#quick = 5
+
+[Repository Local]
+type = Maildir
+localfolders = ~/Maildir
+
+[Repository Remote]
+type = Gmail
+remoteuser = darren.shepard@gmail.com
+realdelete = no
+holdconnectionopen = yes
+idlefolders = ['INBOX']

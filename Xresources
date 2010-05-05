@@ -1,0 +1,9 @@
+URxvt.font: xft:terminus-6
+URxvt.reverseVideo: True
+URxvt.scrollBar: False
+URxvt.loginShell: true
+Xft.antialias: 1
+Xft.hinting: 1
+Xft.hintstyle: hintful
+Xft.rgba: rgb
+Xft.dpi: 108

@@ -1,0 +1,78 @@
+set editor = 'emacsclient -nw -a vi'
+set mbox = "~/Maildir/INBOX/"
+set mbox_type = "Maildir"
+set folder = "~/Maildir/"
+set spoolfile = "~/Maildir/INBOX"
+set postponed = "~/Maildir/[Gmail].Drafts"
+fcc-hook .* ="[Gmail].Sent Mail"
+set check_new = yes
+set sort = threads
+set sort_aux = date
+set beep = no
+set abort_nosubject = no
+set from=dss@orst.edu
+set edit_headers
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+set query_command="lbdbq '%s'"
+set auto_tag = yes
+set move = no
+hdr_order Date From To Cc
+
+ignore *
+unignore from date subject to cc
+unignore x-mailer message-id
+
+# general-doesn't-fit stuff
+color normal     color188 black
+color error      color115 color236
+color markers    color142 color238
+color tilde      color108 black
+color status     color144 color234
+
+# index stuff
+color indicator  white color236
+color tree       color109 black
+color index      color188 black ~A
+color index      color188 black ~N
+color index      color188 black ~O
+color index      color174 black ~F
+color index      color174 black ~D
+
+# header stuff
+color hdrdefault color144 black
+color header     color221 black "^Subject"
+
+# gpg stuff
+color body       color188 black "^gpg: Good signature.*"
+color body       color115 color236 "^gpg: BAD signature.*"
+color body       color174 black "^gpg: Can't check signature.*"
+color body       color174 black "^-----BEGIN PGP SIGNED MESSAGE-----"
+color body       color174 black "^-----BEGIN PGP SIGNATURE-----"
+color body       color174 black "^-----END PGP SIGNED MESSAGE-----"
+color body       color174 black "^-----END PGP SIGNATURE-----"
+color body       color174 black "^Version: GnuPG.*"
+color body       color174 black "^Comment: .*"
+
+# url, email and web stuff
+#color body       color174 black "(finger|ftp|http|https|news|telnet)://[^ >]*"
+#color body       color174 black "<URL:[^ ]*>"
+#color body       color174 black "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
+#color body       color174 black "mailto: *[^ ]+\(\\i?subject=[^ ]+\)?"
+#color body       color174 black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# misc body stuff
+color attachment color174 black #Add-ons to the message
+color signature  color223 black
+
+# quote levels
+color quoted     color243 black
+color quoted1    color116 black
+color quoted2    color247 black
+color quoted3    color108 black
+color quoted4    color116 black
+color quoted5    color247 black
+color quoted6    color108 black
+color quoted7    color116 black
+color quoted8    color247 black
+color quoted9    color108 black

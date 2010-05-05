@@ -1,0 +1,2 @@
+highlight CmdLine font-family: "Monaco"; padding: 1px;
+highlight StatusLine font-family: "Monaco"; 

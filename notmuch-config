@@ -31,6 +31,7 @@ path=/Users/dss/Maildir
 [user]
 name=Darren Shepard
 primary_email=dss@orst.edu
+other_email=darren.shepard@gmail.com;darren@shepard.org;
 
 # Configuration for "notmuch new"
 #

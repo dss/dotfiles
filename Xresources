@@ -1,4 +1,4 @@
-URxvt.font: xft:terminus-6
+URxvt.font: xft:terminus-8
 URxvt.reverseVideo: True
 URxvt.scrollBar: False
 URxvt.loginShell: true

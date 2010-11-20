@@ -1,2 +1,3 @@
-highlight CmdLine font-family: "Monaco"; padding: 1px;
-highlight StatusLine font-family: "Monaco"; 
+javascript liberator.beep = function() { return false; }
+set guioptions+=mT
+

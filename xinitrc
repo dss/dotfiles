@@ -41,5 +41,4 @@ fi
 
 
 
-unclutter &
 exec $HOME/.cabal/bin/xmonad

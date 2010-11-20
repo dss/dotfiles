@@ -1,27 +1,48 @@
-set editor = 'emacsclient -nw -a vi'
-set mbox = "~/Maildir/INBOX/"
-set mbox_type = "Maildir"
-set folder = "~/Maildir/"
-set spoolfile = "~/Maildir/INBOX"
-set postponed = "~/Maildir/[Gmail].Drafts"
-fcc-hook .* ="[Gmail].Sent Mail"
-set check_new = yes
-set sort = threads
-set sort_aux = date
-set beep = no
-set abort_nosubject = no
-set from=dss@orst.edu
-set edit_headers
-set sort = 'threads'
-set sort_aux = 'last-date-received'
-set query_command="lbdbq '%s'"
-set auto_tag = yes
-set move = no
-hdr_order Date From To Cc
+set editor   = 'emacsclient -nw -a vi'
+set from     = dss@orst.edu
 
+set mbox_type = "Maildir"
+set folder    = "~/Maildir"
+set spoolfile = "+INBOX"
+set mbox      = "+archive"
+set postponed = "+drafts"
+unset record 
+
+macro index y "<save-message>+archive<enter>"
+macro index D "<save-message>+trash<enter>"
+macro index ! "<save-message>+spam<enter>"
+macro index gg "<first-entry>"
+macro index G  "<last-entry>"
+
+# options
+unset abort_nosubject
+unset beep
+unset confirmappend
+  set delete
+  set edit_headers
+  set fast_reply
+  set forward_quote
+  set include
+  set mail_check         = 0
+unset markers
+unset mark_old
+  set menu_scroll
+unset move
+  set pager_stop
+  set pipe_decode
+  set query_command      = "lbdbq '%s'"
+  set sort               = threads
+  set sort_aux           = reverse-last-date-received
+  set reply_to
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# headers 
 ignore *
 unignore from date subject to cc
 unignore x-mailer message-id
+hdr_order Date From To Cc
 
 # general-doesn't-fit stuff
 color normal     color188 black
@@ -55,11 +76,11 @@ color body       color174 black "^Version: GnuPG.*"
 color body       color174 black "^Comment: .*"
 
 # url, email and web stuff
-#color body       color174 black "(finger|ftp|http|https|news|telnet)://[^ >]*"
-#color body       color174 black "<URL:[^ ]*>"
-#color body       color174 black "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
-#color body       color174 black "mailto: *[^ ]+\(\\i?subject=[^ ]+\)?"
-#color body       color174 black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body       color174 black "(finger|ftp|http|https|news|telnet)://[^ >]*"
+color body       color174 black "<URL:[^ ]*>"
+color body       color174 black "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
+color body       color174 black "mailto: *[^ ]+\(\\i?subject=[^ ]+\)?"
+color body       color174 black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
 
 # misc body stuff
 color attachment color174 black #Add-ons to the message

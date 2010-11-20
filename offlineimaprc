@@ -1,13 +1,11 @@
 [general]
 accounts = Gmail
-ui = TTY.TTYUI
-#ui = Noninteractive.Quiet
+ui = Noninteractive.Quiet
+pythonfile = ~/bin/get_keychain_pass
 
 [Account Gmail]
 localrepository = Local
 remoterepository = Remote
-#autorefresh = 10
-#quick = 5
 
 [Repository Local]
 type = Maildir
@@ -15,7 +13,6 @@ localfolders = ~/Maildir
 
 [Repository Remote]
 type = Gmail
-remoteuser = darren.shepard@gmail.com
-realdelete = no
-holdconnectionopen = yes
-idlefolders = ['INBOX']
+remoteuser = darren.shepard
+remotepasseval = get_keychain_pass(account="darren.shepard", server="imap.gmail.com")
+nametrans = lambda folder: re.sub('.*Spam$', 'spam', re.sub('.*Drafts$', 'drafts', re.sub('.*Sent Mail$', 'sent', re.sub('.*Starred$', 'flagged', re.sub('.*Trash$', 'trash', re.sub('.*All Mail$', 'archive', re.sub('.*Important$', 'important', re.sub('.*Notes$', 'notes', folder))))))))
